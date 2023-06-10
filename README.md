@@ -1,6 +1,6 @@
 # KangJuHyeong
-SW Expert Academy, Baekjoon Online Judge, Programmers의 문제 풀이를 공유합니다. </br>
-※ 하단의 플랫폼별 랭킹 정보는 2023.06.10 기준으로 작성되었습니다.
+SW Expert Academy, Baekjoon Online Judge, Programmers의 문제 풀이를 하루에 한 문제씩 풀이하여 공유합니다. </br>
+※ 하단의 플랫폼별 랭킹 정보는 **2023.06.10** 기준으로 작성되었습니다.
 
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/61147a12-534e-407b-8500-50f3d608ad1f)
 ---
