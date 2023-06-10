@@ -2,7 +2,7 @@
 각 플랫폼별 알고리즘 문제를 하루에 한 문제씩 풀이하여 공유하는 스터디입니다. </br></br>
 
 ## 플랫폼별 랭킹 및 통계 정보(2023.06.10)
-### 1. ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/5e7c25f4-f7c4-4025-87fa-d49cd5b4d6e9) 소프트웨어 엑스퍼트 아카데미 (SW Expert Academy)
+### ![SWEA](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/e6638038-00e1-4438-a5d7-706ed3a96ad4) 소프트웨어 엑스퍼트 아카데미 (SW Expert Academy)
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/b5bf50a7-7840-4181-8797-61c9748d9eba)
 </br>
 
