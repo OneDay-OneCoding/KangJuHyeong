@@ -5,10 +5,12 @@ SW Expert Academy, Baekjoon Online Judge, Programmers의 문제 풀이를 공유
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/61147a12-534e-407b-8500-50f3d608ad1f)
 ---
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/b5bf50a7-7840-4181-8797-61c9748d9eba)
+</br>
 
-![Boj](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/68f14f07-f3eb-46fa-9435-69a7e9cce18f)
+![Boj](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/c6851d2f-8c43-4b93-947b-e391fc08fad7)
 ---
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/234b970d-3f5a-423e-944c-5426d7e3dba2)
+</br>
 
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/9fdb2e7e-328c-4d2a-88d4-a35cd84a24b5)
 ---
