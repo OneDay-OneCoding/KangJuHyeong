@@ -1,8 +1,8 @@
-# 원데이 원코딩(OneDay-OneCoding)
+## 원데이 원코딩(OneDay-OneCoding)
 SW Expert Academy, Baekjoon Online Judge, Programmers의 문제를 하루에 한 문제씩 풀이하여 공유합니다. </br></br></br>
 
-# 플랫폼별 랭킹 및 통계 정보(2023.06.10)
-</br></br>
+## 플랫폼별 랭킹 및 통계 정보(2023.06.10)
+</br>
 
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/61147a12-534e-407b-8500-50f3d608ad1f)
 ---
