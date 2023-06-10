@@ -10,5 +10,5 @@
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/234b970d-3f5a-423e-944c-5426d7e3dba2)
 </br>
 
-### 3. 프로그래머스 (Programmers)
+### ![PROG](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/eea3cc82-fad5-49b9-8466-345dd4bcb1cf) 프로그래머스 (Programmers)
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/b248f3ad-4742-4159-b1c1-5e357b8c1e90)
