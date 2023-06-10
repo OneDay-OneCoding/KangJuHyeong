@@ -6,7 +6,7 @@
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/b5bf50a7-7840-4181-8797-61c9748d9eba)
 </br>
 
-### 2. 백준 (Baekjoon Online Judge)
+### ![BOJ](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/af3c941b-ab68-4dc3-a765-0fb21e48153d) 백준 (Baekjoon Online Judge)
 ![image](https://github.com/OneDay-OneCoding/KangJuHyeong/assets/63866366/234b970d-3f5a-423e-944c-5426d7e3dba2)
 </br>
 
