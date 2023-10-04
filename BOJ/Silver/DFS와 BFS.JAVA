@@ -20,7 +20,7 @@ public class Main {
     	V = Integer.parseInt(st.nextToken());
     	
     	//  정점의 번호가 1부터 시작하므로, 공간을 추가로 확보해준다.
-    	matrix = new int[N+1][M+1];
+    	matrix = new int[N+1][N+1];
     	visited = new boolean[N+1];
     	
     	for(int i=0; i<M; i++) {
