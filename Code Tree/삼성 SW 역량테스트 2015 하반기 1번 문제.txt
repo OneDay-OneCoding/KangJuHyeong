@@ -1,0 +1,64 @@
+/*
+삼성 SW 역량테스트 2015 하반기 1번 문제
+바이러스 검사
+
+#TC2.
+식당의 수 5
+각 식당에 있는 고객의 수 999999 999999 999999 999999 999999
+팀장 1명이 111111명 검사, 팀원 1명이 5명 검사
+
+1. 체온 측정을 위해, 가게당 팀장 1명은 반드시 필요하다.
+(1). 식당에 있는 고객의 수가 팀장 1명이 검사할 수 있는 인원과 같거나 적을 경우, 정답은 1이 된다.
+
+2. 식당에 있는 고객의 수가 팀장 1명이 검사할 수 있는 인원을 초과한 경우
+(1). 팀원이 검사해야할 나머지 인원 = (식당에 있는 고객의 수 - 팀장이 검사할 수 있는 고객의 수)
+(2). 필요한 팀원의 수 = (팀원이 검사해야할 나머지 인원 / 팀원 1명이 검사할 수 있는 고객의 수)
+
+3. 식당의 고객들을 모두 검사하기 위한 최소의 수
+(1). (999999 - 111111) = 888888
+(2). (888888 / 5) = 177777.6 (올림) = 177778
+(3). 한 식당의 고객들을 검사하기 위한 최소의 수 = 1 + 177778 = 177779
+(4). N개의 식당의 고객들을 모두 검사하기 위한 최소의 수 = 177779 + 177779 + 177779 + 177779 + 177779 = 888895
+
+※ 자료형을 long이 아닌 int로 할 경우, 테스트케이스 20번에서 에러가 발생한다.
+*/
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());
+        int[] input = new int[N];
+        int[] output = new int[N];
+        int manager = 0;
+        int member = 0;
+        long answer = 0;
+
+        st = new StringTokenizer(br.readLine(), " ");
+        for(int i=0; i<N; i++){
+            input[i] = Integer.parseInt(st.nextToken());
+        }
+
+        st = new StringTokenizer(br.readLine(), " ");
+        manager = Integer.parseInt(st.nextToken());
+        member = Integer.parseInt(st.nextToken());
+
+        for(int i=0; i<N; i++){
+            if(input[i] <= manager){
+                output[i] = 1;
+                answer += 1;
+            }
+            else{
+                int requirement = input[i] - manager;
+                output[i] = (int)(Math.ceil((double)requirement / member)) + 1;
+                answer += output[i];
+            }
+        }
+
+        System.out.println(answer);
+    }
+}
+
