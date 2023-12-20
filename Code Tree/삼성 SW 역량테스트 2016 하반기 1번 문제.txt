@@ -1,0 +1,183 @@
+/*
+삼성 SW 역량테스트 2016 하반기 1번 문제
+정육면체 굴리기
+
+1. 정육면체의 상태를 기록할 방법
+(1). 정육면체 전개도 : 정육면체의 각 면의 값을 기록하기 위해, 6개의 변수를 가진 클래스를 하나 만든다.
+※ 정육면체를 (동쪽, 서쪽)으로 굴리던지, (북쪽, 남쪽)으로 굴리던지 상관없이 바닥면은 공유된다는 특징이 있다. 
+
+	    North 
+West	Top (정육면체 상단면) 	East	Bottom (정육면체 바닥면)
+	    South
+	    Bottom (정육면체 바닥면)
+
+2. 정육면체를 동쪽, 서쪽으로 굴릴때와 북쪽, 남쪽으로 굴릴때를 나눠서 고려해야한다.
+(1). 가로 방향
+(2). 세로 방향
+
+3. 전개도의 가로와 세로가 교차하는 지점은 방향과 무관하게 주사위를 굴릴때마다 업데이트 될 수 있도록 한다.
+
+#TC1.
+굴린횟수 9회, 이탈횟수 1회 -> 주사위 상단 면에 쓰여진 숫자는 8회 출력
+남쪽 - 남쪽 - 남쪽 - 동쪽 - 동쪽 - 북쪽 - 서쪽 - 서쪽 - 남쪽
+   0     0     X      0     6      0     0     5     6
+*/
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	static Dice dice;
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+	// 1. 데이터 입력 구간
+	int N,M,X,Y,K;
+	N = Integer.parseInt(st.nextToken());
+	M = Integer.parseInt(st.nextToken());
+	X = Integer.parseInt(st.nextToken());
+	Y = Integer.parseInt(st.nextToken());
+	K = Integer.parseInt(st.nextToken());
+
+	int[][] map = new int[N][M];
+	int[] direction = new int[K];
+	for(int n=0; n<N; n++){
+		st = new StringTokenizer(br.readLine(), " ");
+		for(int m=0; m<M; m++){
+			map[n][m] = Integer.parseInt(st.nextToken());
+		}
+	}
+
+	st = new StringTokenizer(br.readLine(), " ");
+	for(int k=0; k<K; k++){
+		direction[k] = Integer.parseInt(st.nextToken());
+	}
+
+	// 2. 데이터 처리 구간
+	ArrayList<Integer> answer = new ArrayList<>();
+	dice = new Dice();
+	
+	// 동쪽(East, 1), 서쪽(West, 2), 북쪽(North, 3), 남쪽(South, 4)
+	// 주사위를 굴리면서, 현재 바닥면이 어디인지 추적해야한다.
+	for(int k=0; k<K; k++){
+        boolean check = true;
+		if(direction[k] == 1){
+			// 동쪽으로 이동할 경우, Y좌표만 1칸 증가한다. 이때, 말판을 벗어나는지 확인한다.
+			if(Y+1 < M){
+				Y += 1;
+                check = false;
+			}
+		}
+		else if(direction[k] == 2){
+			// 서쪽으로 이동할 경우, Y좌표만 1칸 감소한다. 이때, 말판을 벗어나는지 확인한다.
+			if(Y-1 >= 0){
+				Y -= 1;
+                check = false;
+			}
+		}
+		else if(direction[k] == 3){
+			// 북쪽으로 이동할 경우, X좌표만 1칸 감소한다. 이때, 말판을 벗어나는지 확인한다.
+			if(X-1 >= 0){
+				X -= 1;
+                check = false;
+			}
+		}
+		else if(direction[k] == 4){
+			// 남쪽으로 이동할 경우, X좌표만 1칸 증가한다. 이때, 말판을 벗어나는지 확인한다.
+			if(X+1 < N){
+				X += 1;
+                check = false;
+			}
+		}
+		
+        if(check){
+			continue;
+		}
+
+        // 메소드의 매개변수로 전역으로 선언된 객체를 넘길 경우, Call By Reference 됨을 주의!
+        // 전역객체와 다른 상태의 객체를 넘겨주고 싶다면 새롭게 만들어서 넘겨줘야한다.
+		rolling(new Dice(dice.top, dice.bottom, dice.west, dice.east, dice.north, dice.south), direction[k]);
+		if(map[X][Y] == 0){
+			map[X][Y] = dice.bottom;
+		}
+		else{
+			dice.bottom = map[X][Y];
+			map[X][Y] = 0;
+		}
+		answer.add(dice.top);
+	}
+
+	// 3. 데이터 출력 구간
+	for(int i=0; i<answer.size(); i++){
+		System.out.println(answer.get(i));
+	}
+    }
+
+	// 이동 방향을 가지고 정육면체를 한 칸 굴리는 함수
+	public static void rolling(Dice d, int direction){
+		switch(direction){
+			// 동쪽, East
+            // <- West <- Top <- East <- Bottom
+			// Top East Bottom West
+            case 1: 
+                dice.west = d.top;
+                dice.top = d.east;
+                dice.east = d.bottom;
+                dice.bottom = d.west;
+                break;
+			
+            // 서쪽, West
+			// West -> Top -> East -> Bottom ->
+			// Bottom West Top East
+			case 2: 
+                dice.west = d.bottom;
+                dice.top = d.west;
+                dice.east = d.top;
+                dice.bottom = d.east;
+                break; 
+				
+            // 북쪽, North
+			// <- North <- Top <- South <- Bottom
+			// Top South Bottom North    
+			case 3: 
+                dice.north = d.top;
+                dice.top = d.south;
+                dice.south = d.bottom;
+                dice.bottom = d.north;
+                break; 
+				
+            // 남쪽, South
+			// North -> Top -> South -> Bottom ->
+			// Bottom North Top South
+			case 4: 
+                dice.north = d.bottom;
+                dice.top = d.north;
+                dice.south = d.top;
+                dice.bottom = d.south;
+                break; 	
+		}
+	}
+}
+
+class Dice{
+	int top, bottom, west, east, north, south;
+	
+	public Dice(){
+		top = 0;
+		bottom = 0;
+		west = 0;
+		east = 0;
+		north = 0;
+		south = 0;
+	}
+	
+	public Dice(int t, int b, int w, int e, int n, int s){
+		top = t;
+		bottom = b;
+		west = w;
+		east = e;
+		north = n;
+		south = s;
+	}
+}
